@@ -1,0 +1,146 @@
+.heading
+{
+    background-image: url("../Images/home\ bg.jpg");
+    display: flex;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 130vh;
+}
+*  {
+    margin:0%;
+    padding: 0%;
+    box-sizing: border-box;
+ }
+ .heading h2{
+    position: absolute;
+    top:20%;
+    font-style: italic;
+    text-decoration: wavy;
+    left:43%;
+ }
+ .newName
+{
+    left:40%;
+    top:36%;
+    position: absolute;
+    font-family: 'Times New Roman', Times, serif;
+    font-size:x-large;
+}
+.newAge
+{
+    left:40%;
+    top:56%;
+    position: absolute;
+    font-family: 'Times New Roman', Times, serif;
+    font-size:x-large;
+}
+.newuser
+{
+    left:40%;
+    top:46%;
+    position: absolute;
+    font-family: 'Times New Roman', Times, serif;
+    font-size:x-large;
+}
+.newdob
+{
+    left:40%;
+    top:66%;
+    position: absolute;
+    font-family: 'Times New Roman', Times, serif;
+    font-size:x-large;
+}
+.newGender
+{
+    left:40%;
+    top:76%;
+    position: absolute;
+    font-family: 'Times New Roman', Times, serif;
+    font-size:x-large;
+}
+.newpassword
+{
+    left:40%;
+    top:86%;
+    position: absolute;
+    font-family: 'Times New Roman', Times, serif;
+    font-size:x-large;
+}
+.in-put-name
+{
+    left:50%;
+    top:36%;
+    position: absolute;
+    border: none;
+    border-radius: 15px;
+    padding: 10px;
+}
+.in-put-age
+{
+    left:50%;
+    top:56%;
+    position: absolute;
+    border: none;
+    border-radius: 15px;
+    padding: 10px;
+}
+.in-put-users
+{
+    left:50%;
+    top:46%;
+    position: absolute;
+    border: none;
+    border-radius: 15px;
+    padding: 10px;
+}
+.in-put-gender
+{
+    left:50%;
+    top:76%;
+    position: absolute;
+    border: none;
+    border-radius: 15px;
+    padding: 10px;
+}
+.in-put-dob
+{
+    left:50%;
+    top:66%;
+    position: absolute;
+    border: none;
+    border-radius: 15px;
+    padding: 10px;
+}
+.in-put-passwords
+{
+    left:50%;
+    top:86%;
+    position: absolute;
+    border: none;
+    border-radius: 15px;
+    padding: 10px;
+}
+ .signcover
+ {
+    background-color: rgb(59, 131, 101);
+    opacity: 0.7;
+    position:absolute;
+    left:35%;
+    top:18%;
+    border-radius: 15px;
+    height: 80vh;
+    width: 67vh;
+    background-size: cover;
+    color: white;
+    display: flex; 
+ }
+ .add-btn
+{
+    position: absolute;
+    left:49%;
+    top:99.5%;
+    border: none;
+    border-radius: 10%;
+    padding: 10px;
+    background-color: rgba(6, 185, 45, 0.788);
+}
