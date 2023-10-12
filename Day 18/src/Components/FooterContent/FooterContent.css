@@ -1,0 +1,289 @@
+/* terms and condition css */
+ul{
+    list-style: none;
+    color: black;
+}
+.card {
+    margin-top: 50px;
+    height : 2300px;
+    width: 1200px;
+    border-radius: 30px;
+    background-color: #e1e2e9;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-weight: bold;
+}
+.card h2{
+    font-weight: bolder;
+    color: black;
+}
+@media only screen and (max-width: 1218px) {
+    .card ,.policy-card{
+        margin-top: 100px;
+        margin-bottom: 100px;
+        height : 2050px;
+        width: 1000px;
+        border-radius: 30px;
+        background-color: #a0c3d3;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media only screen and (max-width: 1012px) {
+    .card ,.policy-card{
+        margin-top: 100px;
+        margin-bottom: 100px;
+        height : 2350px;
+        width: 800px;
+        border-radius: 30px;
+        background-color: #a0c3d3;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media only screen and (max-width: 832px) {
+    .card ,.policy-card{
+        margin-top: 100px;
+        margin-bottom: 100px;
+        height : 2950px;
+        width: 600px;
+        border-radius: 30px;
+        background-color: #a0c3d3;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media only screen and (max-width: 626px) {
+    .card,.policy-card {
+        margin-top: 100px;
+        margin-bottom: 100px;
+        height : 3850px;
+        width: 450px;
+        border-radius: 30px;
+        background-color: #a0c3d3;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    
+}
+
+@media only screen and (max-width: 480px) {
+    .card,.policy-card {
+        margin-top: 100px;
+        margin-bottom: 100px;
+        height : 5050px;
+        width: 350px;
+        border-radius: 30px;
+        background-color: #a0c3d3;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+}
+
+@media only screen and (max-width: 365px) {
+    .card ,.policy-card{
+        margin-top: 100px;
+        margin-bottom: 100px;
+        height : 6300px;
+        width: 290px;
+        border-radius: 30px;
+        background-color: #a0c3d3;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+}
+.tacbox {
+    display:block;
+    padding: 1em;
+    margin: 2em;
+    border: 3px solid #ddd;
+    background-color: #eee;
+    max-width: 800px;
+    position: absolute;
+    top:95%;
+    left: 36%;
+  }
+  .checkbox
+  {
+        height: 2em;
+        width: 2em;
+        vertical-align: middle;
+  }
+  .button-tac {
+    font-family: inherit;
+    font-size: 18px;
+    background: linear-gradient(to bottom, #4dc7d9 0%,#66a6ff 100%);
+    color: white;
+    padding: 0.4em 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 25px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+    position: absolute;
+    top:15%;
+    left: 126%;
+  }
+  
+  .button-tac:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .button-tac:active {
+    transform: scale(0.95);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* .button-tac span {
+    display: block;
+    margin-left: 0.4em;
+    transition: all 0.3s;
+  } */
+  
+  /* .button-tac svg {
+    width: 18px;
+    height: 18px;
+    fill: white;
+    transition: all 0.3s;
+  }
+  
+  .button-tac .svg-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin-right: 0.5em;
+    transition: all 0.3s;
+  }
+  
+  .button-tac:hover .svg-wrapper {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+  
+  .button-tac:hover svg {
+    transform: rotate(45deg);
+  } */
+
+
+  /* privacy policy css */
+  .policy-content 
+  {
+    display: grid;
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+    text-align: center;
+    
+  }
+  .policy-content h3,.policy-content h2{
+    color: black;
+    font-style: oblique;
+    font-weight: bold;
+  }
+  .policy-card
+  {
+      margin-top: 50px;
+      height : 1600px;
+      width: 1250px;
+      border-style:solid;
+      border-radius: 30px;
+      margin-left: auto;
+      margin-right: auto;
+      
+  }
+  .policy-tacbox {
+    display:block;
+    padding: 1em;
+    margin: 2em;
+    border: 3px solid #ddd;
+    background-color: #eee;
+    max-width: 800px;
+    position: absolute;
+    top:235%;
+    left: 36%;
+  }
+  .policy-checkbox
+  {
+        height: 2em;
+        width: 2em;
+        vertical-align: middle;
+  }
+  /* faq */
+ 
+.faq-heading{
+    border-bottom: #777;
+    padding: 20px 60px;
+}
+.faq-container{
+display: flex;
+justify-content: center;
+flex-direction: column;
+
+}
+.hr-line{
+  width: 60%;
+  margin: auto;
+  
+}
+/* Style the buttons that are used to open and close the faq-page body */
+.faq-page {
+    /* background-color: #eee; */
+    color: #444;
+    cursor: pointer;
+    padding: 30px 20px;
+    width: 60%;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    margin: auto;
+
+}
+.faq-body{
+    margin: auto;
+    /* text-align: center; */
+   width: 50%; 
+   padding: auto;
+   
+}
+
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active,
+.faq-page:hover {
+    background-color: #F9F9F9;
+}
+
+/* Style the faq-page panel. Note: hidden by default */
+.faq-body {
+    padding: 0 18px;
+    background-color: white;
+    display: none;
+    overflow: hidden;
+}
+
+.faq-page:after {
+    content: '\02795';
+    /* Unicode character for "plus" sign (+) */
+    font-size: 13px;
+    color: #777;
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: "\2796";
+    /* Unicode character for "minus" sign (-) */
+}
