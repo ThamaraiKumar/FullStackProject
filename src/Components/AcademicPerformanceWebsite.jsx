@@ -14,7 +14,7 @@ function AcademicPerformanceWebsite() {
     <div className="header-right">
     <ul>
     <Link to="/apw"><li>Home</li></Link>
-    <Link to="/apw"><li>Contact</li></Link>
+    <a href="#footerhome"><li>Contact</li></a>
     <Link to="/apw"><li>About</li></Link>
     <Link to="/"><li><button className='get-started-btn'>GET STARTED</button></li></Link>
     </ul>
@@ -24,7 +24,7 @@ function AcademicPerformanceWebsite() {
     </header>
     <div className='quotes-home'><p><b>"EDUCATION IS THE ART OF MAKING MAN ETHICAL"</b></p></div>
     </div>
-    <Footer/>
+    <div id="footerhome"><Footer/></div>
     </div>
   )
 }

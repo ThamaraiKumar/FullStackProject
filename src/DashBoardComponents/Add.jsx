@@ -4,34 +4,56 @@ import { ToastContainer, toast } from 'react-toastify';
 import'../DashBoardComponents/Home.css'
 import '../Components/Login.css'
 import SideBar from '../Components/SideBar';
+import axios from 'axios';
 
 
 function Add() {
-    const[emailid,setEmailId]=useState("");
-  const[password,setPassword]=useState("");
+  const[emailid,setEmailId]=useState("");
+  const[phoneno,setPhoneNo]=useState("");
   const[name,setName]=useState("");
   const[department,setDepartment]=useState("");
-  const[age,setAge]=useState("");
-  const[year,setyos]=useState("");
+  const[gender,setGender]=useState("");
+  const[seniority,setSeniority]=useState("");
   const nav=useNavigate();
+
+
+
   const authenticate=(event)=>{
     event.preventDefault();
- if(emailid.length===0|| password.length===0)
+    const details={emailid:emailid,
+      phoneno:phoneno,
+      name:name,
+      gender:gender,
+      department:department,
+      seniority:seniority,
+      staffno:emailid.split("@")[0]
+    }
+ if(emailid.length===0|| phoneno.length===0 ||gender.length===0 ||seniority.length===0||
+  department.length===0||name.length===0)
  {
- 
   toast.error("Enter all fields");
  }
- 
  else{
-  toast.success("LoggedIn");
-  nav("/")
- }}
+  axios.post("http://localhost:2001/staff/addStaff",details)
+  .then(()=>{
+    console.log("New Detail Added");   
+    console.log(JSON.stringify(details));
+    console.log(event);
+    toast.success("Details Stored");
+    nav("/showstaff")
+  })
+}
+
+ }
+
+
+ 
  return (
    <div>
     <div className='sidebarinallpage'><SideBar/></div>
     <div className='heading'>
     <div className='signcover'></div>
-    <h2 className='register-form'>ADD STAFF/STUDENT</h2>
+    <h2 className='register-form'>STAFF REGISTRATION</h2>
     <form>
 
 
@@ -42,21 +64,20 @@ function Add() {
     <label  htmlform="name" className='newName'>Name</label><br/>
     <input type="text" value={name} onChange={(e) =>setName(e.target.value)} placeholder='Name' className='in-put-name' required/>
    
-    <label  htmlform="password" className='newpassword'>Password</label><br/>
-    <input type="password" value={password} onChange={(e) =>setPassword(e.target.value)} placeholder='Password' className='in-put-passwords' required/>
+    <label  htmlform="password" className='newpassword'>Phone no</label><br/>
+    <input type="text" value={phoneno} onChange={(e) =>setPhoneNo(e.target.value)} placeholder='Password' className='in-put-passwords' required/>
     
     
     
-    <label  htmlform="Age" className='newAge'>Age</label><br/>
-    <input type="text" value={age} onChange={(e) =>setAge(e.target.value)} placeholder='Age' className='in-put-age' required/>
+    <label  htmlform="Age" className='newAge'>Gender</label><br/>
+    <input type="text" value={gender} onChange={(e) =>setGender(e.target.value)} placeholder='staff id' className='in-put-age' required/>
     
     
     <label  htmlform="gender" className='newGender'>Department</label><br/>
     <input type="text" value={department} onChange={(e) =>setDepartment(e.target.value)} placeholder='Department' className='in-put-gender' required/>
-    
-    
-    <label  htmlform="dob" className='newdob'>Year</label><br/>
-    <input type="text" value={year} onChange={(e) =>setyos(e.target.value)} placeholder='year of study' className='in-put-dob' required/>
+
+    <label  htmlform="dob" className='newdob'>Seniority</label><br/>
+    <input type="text" value={seniority} onChange={(e) =>setSeniority(e.target.value)} placeholder='Associate/Assisant' className='in-put-dob' required/>
 
      <button type='submit'  onClick={authenticate} className='add-btn'>ADD</button>
 

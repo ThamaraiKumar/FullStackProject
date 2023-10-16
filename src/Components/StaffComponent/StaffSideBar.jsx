@@ -1,10 +1,17 @@
 import React, { useState } from 'react'
 import './StaffComponents.css'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseFullscreenIcon from '@mui/icons-material/CloseFullscreen';
 
 function StaffSideBar() {
+
+    const nav=useNavigate();
+    const logout = () => {
+    localStorage.removeItem('token');
+    nav("/")
+}
+
     const [isOpen, setIsopen] =  useState(false);
 
     const ToggleSidebar = () => {
@@ -36,7 +43,7 @@ function StaffSideBar() {
                 <li><Link to ="/addstudent" className="sd-link">ADD STUDENTS</Link></li>
                 <li><Link to ="/viewcourse" className="sd-link">COURSES</Link></li>
                 <li><Link to ="/attendance" className="sd-link">ATTENDANCE</Link></li>
-                <li><Link to ="/" className="sd-link">LOGOUT</Link></li>
+                <li className="sd-link" onClick={logout}>LOGOUT</li>
             </ul>
         </div>
     </div>
@@ -49,3 +56,5 @@ function StaffSideBar() {
 }
 
 export default StaffSideBar
+
+// <Link to ="/" className="sd-link">LOGOUT</Link>

@@ -1,12 +1,26 @@
 import React from 'react'
 import './Home.css'
 import SideBar from '../Components/SideBar'
+import { useEffect } from 'react'
+import axios from 'axios'
+import { useState } from 'react'
 
 
 function ShowStaff() {
+  const [details, setDetails] = useState([])
+     
+    
+  useEffect(() => {
+      axios.get("http://localhost:8080/staff/staffdetails")
+          .then((response) => {
+              setDetails(response.data);
+          })
+  }, [])
+
   return (
     <div>
     <div><SideBar/></div>
+    <div className='staffdetails-heading'>STAFF DETAILS</div>
     <grid className='grid-table'>
     <table className='rwd-table'>
       <thead>
@@ -19,14 +33,19 @@ function ShowStaff() {
           <th>AGE</th>
         </tr>
       </thead>
-      <tbody><tr>
-      <td>727821TUIT</td>
-      <td>727821tuit@skct.edu.in</td>
-      <td>THAMARAI</td>
-      <td>INFORMATION TECHNOLOGY</td>
-      <td>3</td>
-      <td>20</td>
-      </tr>
+      <tbody>
+
+      {details.map((staff) =>{return (
+        <tr>
+        <td>{staff.bookId}</td>
+        <td>{staff.userinfo}</td>
+        <td>{staff.bookName}</td>
+        <td>{staff.authorName}</td>
+        <td>{staff.bookVolume}</td>
+        <td>{staff.price}</td>
+        <td>{staff.category}</td>
+        <td>{staff.imageurl}</td>
+        </tr> )})}
       </tbody>
     </table>
     </grid>

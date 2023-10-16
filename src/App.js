@@ -1,9 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import {BrowserRouter,Route,Routes} from 'react-router-dom'
+import {BrowserRouter,Route,Routes, useNavigate} from 'react-router-dom'
 import Login from './Components/Login';
-import StudentLogin from './Components/StudentLogin';
-import StaffLogin from './Components/StaffLogin';
+// import StudentLogin from './Components/StudentLogin';
+// import StaffLogin from './Components/StaffLogin';
 // import Home from './Components/Home'
 import SideBar from './Components/SideBar';
 import Add from './DashBoardComponents/Add';
@@ -29,17 +29,22 @@ import ViewAssignment from './Components/StudentComonent/ViewAssignment';
 import AddAssignment from './Components/StaffComponent/AddAssignment';
 import ViewAttendance from './Components/StudentComonent/ViewAttendance';
 import MyProfile from './Components/StudentComonent/MyProfile';
+import StaffRegistration from './Components/StaffRegistration';
+import StudentRegistration from './Components/StudentRegistration';
+import NotFound from './Components/NotFound';
 
 function App() {
+
+
   return (
     <div className="App">
     <BrowserRouter>
     <Routes>
     <Route path="/" element={<Login/>}/>
-    <Route path="/studentlogin" element={<StudentLogin/>}/>
-    <Route path="/staffdashboard" element={<StaffDashboard/>}/>
+    
+    <Route path="/staffdashboard" element={<StaffProfile/>}/>
     <Route path="/studentdashboard" element={<StudentDashBoard/>}/>
-    <Route path="/stafflogin" element={<StaffLogin/>}/>
+    <Route path="/*" element={<NotFound/>}/>
     <Route path="/studentdetails" element={<StudentDetails/>}/>
     <Route path="/attendance" element={<Attendance/>}/>
     <Route path="/view/attendance" element={<ViewAttendance/>}/>
@@ -48,9 +53,11 @@ function App() {
     <Route path="/student/viewcourse" element={<ViewCourse/>}/>
     <Route path="/addcourse" element={<AddCourse/>}/>
     <Route path="/joincourse" element={<JoinCourse/>}/>
-    <Route path="/addstudent" element={<AddStudent/>}/>
+    <Route path="/addstudent" element={<StudentRegistration/>}/>
+    <Route path="/addstudent-registered" element={<AddStudent/>}/>
     <Route path="/home" element={<SideBar/>}/>
-    <Route path="/add" element={<Add/>}/>
+    <Route path="/add" element={<StaffRegistration/>}/>
+    <Route path="/addstaff" element={<Add/>}/>
 
     <Route path="/myprofile" element={<MyProfile/>}/>
 
@@ -73,4 +80,8 @@ function App() {
   }
   
   export default App;
-  
+
+
+
+  // <Route path="/stafflogin" element={<StaffLogin/>}/>
+  // <Route path="/studentlogin" element={<StudentLogin/>}/>

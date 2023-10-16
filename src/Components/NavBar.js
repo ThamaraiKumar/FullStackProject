@@ -8,27 +8,28 @@ import { Link } from 'react-router-dom';
 function NavBar() {
   return (
     <div>
-    <Navbar bg="white" expand="lg">
+    <Navbar bg="transparent" expand="lg">
     <Container>
-      <Navbar.Brand>Academic Details</Navbar.Brand>
+      <Navbar.Brand>SRI KRISHNA COLLEGE OF TECHNOLOGY</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
           <NavDropdown title="MENU" id="basic-nav-dropdown">
-                    <NavDropdown.Item>Home</NavDropdown.Item>
-                    <NavDropdown.Item><Link to="/" style={{textDecoration:"none",color:"inherit"}}>Sign up as Admin</Link></NavDropdown.Item>
-                    <NavDropdown.Item><Link to="/stafflogin" style={{textDecoration:"none",color:"inherit"}}>Sign up as Staff</Link></NavDropdown.Item>
-                    <NavDropdown.Item><Link to="/studentlogin" style={{textDecoration:"none", color:"inherit"}}>Sign up as Student</Link></NavDropdown.Item>
-          </NavDropdown>
-        </Nav>
-      </Navbar.Collapse>
-    </Container>
-  </Navbar>
-  </div>
-  )
-}
-
-export default NavBar
+                   
+                    <NavDropdown.Item><Link to="/apw" style={{textDecoration:"none",color:"inherit"}}>Home</Link></NavDropdown.Item>
+                    </NavDropdown>
+                    </Nav>
+                    </Navbar.Collapse>
+                    </Container>
+                    </Navbar>
+                    </div>
+                    )
+                  }
+                  
+                  export default NavBar
+                  // <NavDropdown.Item>Home</NavDropdown.Item>
+                  // <NavDropdown.Item><Link to="/stafflogin" style={{textDecoration:"none",color:"inherit"}}>Sign up as Staff</Link></NavDropdown.Item>
+                  // <NavDropdown.Item><Link to="/studentlogin" style={{textDecoration:"none", color:"inherit"}}>Sign up as Student</Link></NavDropdown.Item>
 
 
 

@@ -1,9 +1,32 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './StaffComponents.css'
 import StaffDashboard from './StaffDashboard'
+import axios from 'axios';
+
 
 
 function StaffProfile() {
+
+    const username = localStorage.getItem('emailid');
+    const[profile,setProfile]=useState([])
+    const [details, setDetails] = useState([])
+
+    // useEffect(()=>{
+    //     fetch(`http://localhost:2001/staff/getstaff/${username}`)
+    //         .then((response) => response.json())
+    //         .then((data) => setProfile(data))
+    //         .catch((error)=>{console.error('Error in profile fetching',error)});
+    
+    // },[username]);
+
+    useEffect(() => {
+        axios.get(`http://localhost:2001/staff/getstaff/${username}`)
+            .then((response) => {
+                setDetails(response.data);
+            })
+    }, [])
+
+
   return (
     <div>
     <nav><StaffDashboard/></nav>
@@ -30,20 +53,30 @@ function StaffProfile() {
                             </div>
                         </div>
                         <div className="xp-social-profile-middle text-center">
-                            <div className="row">
-                                <div className="col-12">
-                                    <div className="xp-social-profile-title">
-                                        <h5 className="my-1 text-black">username</h5>
+
+                        
+                             <div className="row">
+                             {Array.isArray(profile) && profile.length > 0 ? (
+                                profile.map((data) => (
+                                    <div className="col-12" key={data.emailid}>
+                                        <div className="xp-social-profile-title">
+                                            <h5 className="my-1 text-black">{username}</h5>
+                                        </div>
+                                        <div className="xp-social-profile-subtitle">
+                                            <p className="mb-3 text-muted">{data.seniority}</p>
+                                        </div>
+                                        <div className="xp-social-profile-desc">
+                                            <p className="text-muted">{data.department}</p>
+                                        </div>
                                     </div>
-                                    <div className="xp-social-profile-subtitle">
-                                        <p className="mb-3 text-muted">Associate Professor</p>
-                                    </div>
-                                    <div className="xp-social-profile-desc">
-                                        <p className="text-muted">IT<br/>Department</p>
-                                    </div>
-                                </div>
+                                ))
+                            ) : (
+                                <p>No profile data available</p>
+                            )}
                             </div>
-                        </div> </div>
+                        </div> 
+                        </div>
+                        
                         </div>
                     </div>
                 </div>

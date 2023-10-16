@@ -24,7 +24,7 @@ import { PieChart, Pie, Cell, Tooltip, Legend, BarChart, Bar } from "recharts";
 import SideBar from "../Components/SideBar";
 import '../Components/SideBar.css'
 class Performance extends React.Component {
-   COLORS = ["#8884d8", "#82ca9d", "#FFBB28", "#FF8042", "#AF19FF"];
+   COLORS = ["#19214D", "#2D862E", "#FFBB28", "#7E862D", "#AF19FF"];
    pieData = [
       {
          name: "Final year",
@@ -109,7 +109,7 @@ render() {
     ];
    return (
     <div>
-    <SideBar/><h1>PERFORMANCE OF THE YEAR</h1>
+    <SideBar/><h1 className="performnace-of-year">PERFORMANCE OF THE YEAR</h1>
     <div className="piechart">
       <PieChart width={698} height={300}>
       <Pie
@@ -132,9 +132,12 @@ render() {
       <Tooltip content={<this.CustomTooltip />} /><Legend/>
       </PieChart>
       </div>
+
+
       <div className="barchart">
+      <div className="barcharth1">BAR CHART</div>
       <BarChart width={450} height={250} data={data}>
-        <Bar dataKey="uv" fill="#8884d8" />
+        <Bar dataKey="uv" fill="#00a8ff" />
       </BarChart>
       </div>
       </div>

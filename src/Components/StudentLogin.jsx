@@ -28,7 +28,6 @@ function StudentLogin() {
   ).then(()=>{
     console.log("New Detail Added");   
     console.log(JSON.stringify(details));
-    console.log(e);
     toast.success("Logged In");
     nav("/studentdashboard")
   })  

@@ -71,7 +71,7 @@ function TermsAndCondition() {
     
     <div class="tacbox">
   <input id="checkbox" type="checkbox" />
-  <label for="checkbox"> I agree to these Terms and Conditions.</label>
+  <label htmlFor="checkbox"> I agree to these Terms and Conditions.</label>
   <Link to="/apw"><button type='submit' className='button-tac'>Submit</button></Link>
   </div>
 </div>

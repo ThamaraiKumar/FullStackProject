@@ -52,6 +52,8 @@ body {
       float: none;
     }
   }
+
+  /* performance css */
   .piechart
   {
     position: absolute;
@@ -68,4 +70,25 @@ body {
 {
   position: absolute;
   left:73%;
+}
+.performnace-of-year
+{
+  font-family: 'Times New Roman', Times, serif;
+  font-style: italic;
+  color: black;
+  text-align: center;
+  margin-left: 10%;
+  margin-top: 2%;
+  text-decoration: underline;
+}
+.barcharth1{
+  font-family: 'Times New Roman', Times, serif;
+  font-style: italic;
+  color: black;
+  font-size: x-large;
+  text-align: center;
+  font-weight: bolder;
+  position: absolute;
+  top: 110%;
+  left:45%;
 }

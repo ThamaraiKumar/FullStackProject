@@ -1,8 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './FooterContent.css'
 import { Link } from 'react-router-dom'
 
 function PrivacyPolicy() {
+    const [isCheckboxChecked, setCheckboxChecked] = useState(false);
+
+    const handleCheckboxChange = (event) => {
+      setCheckboxChecked(event.target.checked);
+    };
+  
+    const handleSubmit = () => {
+      if (isCheckboxChecked) {
+        console.log('Form submitted');
+      } else {
+        alert('Please agree to the policy before submitting.');
+      }
+    };
+  
+
   return (
     <div>
     <div className='policy-card'>
@@ -53,9 +68,9 @@ If you are a European resident, you have the following rights related to your pe
     
     </div>
     <div className="policy-tacbox">
-  <input id="policy-checkbox" type="checkbox" />
-  <label for="checkbox"> I agree to these policy.</label>
-  <Link to="/apw"><button type='submit' className='button-tac'>Submit</button></Link>
+  <input id="policy-checkbox" type="checkbox" checked={isCheckboxChecked} onChange={handleCheckboxChange} />
+  <label htmlFor="checkbox"> I agree to these policy.</label>
+  <Link to="/apw"><button type='submit' onClick={handleSubmit} disabled={!isCheckboxChecked} className='button-tac'>Submit</button></Link>
   </div>
   </div>
     </div>

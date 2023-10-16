@@ -13,8 +13,9 @@
   }
   .btn-primary-side-menu-bar
   {
-    margin-top: -31%;
-    margin-left: -68%;
+    top: 5%;
+    left: 6%;
+    position: fixed;
   }
   .btn-primary-sidebar{
     margin-top: -156%;

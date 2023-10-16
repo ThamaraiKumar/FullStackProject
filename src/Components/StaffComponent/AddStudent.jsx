@@ -2,40 +2,39 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import StaffSideBar from './StaffSideBar';
+import axios from 'axios';
 
 function AddStudent() {
     const[emailid,setEmailId]=useState("");
-    const[password,setPassword]=useState("");
+    const[phoneno,setPhoneno]=useState("");
     const[name,setName]=useState("");
     const[department,setDepartment]=useState("");
     const[gender,setGender]=useState("");
     const[year,setyos]=useState("");
-    const[rollno,setRollno]=useState("");
     const nav=useNavigate();
     const authenticate=(event)=>{
       event.preventDefault();
-      const details={emailid,password,name,department,gender,year,rollno};
-   if(emailid.length===0|| password.length===0)
+   if(emailid.length===0|| phoneno.length===0)
    {
    
     toast.error("Enter all fields");
    }
-   
    else{
-    fetch("http://localhost:8080/student/register",{
-      method:"POST",
-      headers:{"Content-Type":"application/json"},
-      body:JSON.stringify(details)
-    }
-    ).then(()=>{
-      console.log("New Detail Added");   
-      console.log(JSON.stringify(details));
-      console.log(event);
-      toast.success("LoggedIn");
-    nav("/")
-    })
-   }
-   }
+   const userdetails={
+    emailid:emailid,
+    phoneno:phoneno,
+    name:name,
+    department:department,
+    gender:gender,
+    year:year,
+    rollno:emailid.split("@")[0]
+  };
+  axios.post("http://localhost:2001/student/addStudent",userdetails)
+  .then((response=>{
+    toast.success("Registered!!");
+    nav("/studentdetails")
+  }))
+   }}
   return (
     <div>
     
@@ -50,26 +49,18 @@ function AddStudent() {
   
       <label  htmlform="name" className='newName'>Name</label><br/>
       <input type="text" value={name} onChange={(e) =>setName(e.target.value)} placeholder='Name' className='in-put-name' required/>
-     
-      <label  htmlform="password" className='newpassword'>Password</label><br/>
-      <input type="password" value={password} onChange={(e) =>setPassword(e.target.value)} placeholder='Password' className='in-put-passwords' required/>
-      
-      
-      
+ 
       <label  htmlform="Age" className='newAge'>Gender</label><br/>
       <input type="text" value={gender} onChange={(e) =>setGender(e.target.value)} placeholder='F/M' className='in-put-age' required/>
-      
-      
+ 
       <label  htmlform="gender" className='newGender'>Department</label><br/>
       <input type="text" value={department} onChange={(e) =>setDepartment(e.target.value)} placeholder='Department' className='in-put-gender' required/>
-      
-      
+ 
       <label  htmlform="dob" className='newdob'>Year</label><br/>
       <input type="text" value={year} onChange={(e) =>setyos(e.target.value)} placeholder='year of study' className='in-put-dob' required/>
-      
-      <label  htmlform="rollno" className='newroll'>Rollno</label><br/>
-      <input type="text" value={rollno} onChange={(e) =>setRollno(e.target.value)} placeholder='roll number' className='in-put-rollno' required/>
-      
+      <label  htmlform="phoneno" className='newpassword'>Phone No</label><br/>
+            <input type="text" value={phoneno} onChange={(e) =>setPhoneno(e.target.value)} placeholder='Mobile No' className='in-put-passwords' required/>
+
       <button type='submit'  onClick={authenticate} className='add-btn'>ADD</button>
        <ToastContainer/>
       </form>
@@ -80,3 +71,6 @@ function AddStudent() {
 }
 
 export default AddStudent
+
+// <label  htmlform="rollno" className='newroll'>Rollno</label><br/>
+// <input type="text" value={rollno} onChange={(e) =>setRollno(e.target.value)} placeholder='roll number' className='in-put-rollno' required/>

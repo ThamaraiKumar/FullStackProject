@@ -6,13 +6,15 @@ import NavBar from './NavBar';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from "react-redux";
 import { login } from "../Redux/UserSlice";
-
+import axios from 'axios';
 
 function Login() {
   
   const nav=useNavigate();
   const dispatch = useDispatch();
-
+   
+  const[emailid,setemailId]=useState("");
+  const[password,setPassword]=useState("");
 
 
   const handleChange = (e) => {
@@ -20,28 +22,63 @@ function Login() {
     console.log(formdata);
   };
   const [formdata, setFormdata] = useState({
-    username: "",
+    emailid: "",
     password: "",
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    if(formdata.username.length===0 || formdata.password.length===0)
+    if(formdata.emailid.length===0 || formdata.password.length===0)
   {
     toast.error("Enter all fields");
   }
- else if(formdata.username!=="Thamarai@gmail.com" && formdata.password!=="ThamaraiAdmin")
- {
-  toast.warning("Invalid Admin Entry");
- }
- else{
-  toast.success("LoggedIn");
-  nav("/home");
- }
+//  else if(formdata.username!=="Thamarai@gmail.com" && formdata.password!=="ThamaraiAdmin")
+//  {
+//   toast.warning("Invalid Admin Entry");
+//  }
+else{
+
+  const userAuth={
+    emailid:formdata.emailid,
+    password:formdata.password
+  };
+  axios.post("http://localhost:2003/auth/login",userAuth)
+  .then((response=>{
+    const token=response.data.token;
+    const role=response.data.role;
+    const email=response.data.emailid;
+    if(token)
+    {
+     localStorage.setItem("token",token);
+     localStorage.setItem("role",role);
+     localStorage.setItem("emailid",email);
+    if(role==="ADMIN")
+    {
+      nav("/dashboard")
+    }
+    else if(role==="STAFF")
+    {
+      nav("/staffdashboard")
+    }
+    else if(role==="STUDENT")
+    {
+      nav("studentdashboard")
+    }
+    else{
+      toast.warn("Inavlid User");
+    }
+    }
+    else{
+      toast.error("Invalid Login");
+    }
+  })).catch((error)=>{
+    toast.error(error);
+  })
+}
     dispatch(
       login({
-        username: formdata.username,
+        username: formdata.emailid,
       })
     );
   };
@@ -53,12 +90,12 @@ function Login() {
     <div className='auth-form-container'>
     <div id="cover"></div>
     <form id="formContent">
-    <h2>Login Page</h2><br/>
+    <h2>LOGIN</h2><br/>
 
 
     
-    <label htmlform="useremail" className='Aloginuser'>Admin Email Id</label><br/>
-    <input type="email" name='username' placeholder='Email Id' value={formdata.username}
+    <label htmlform="useremail" className='Aloginuser'>Email Id</label><br/>
+    <input type="email" name='emailid' placeholder='Email Id' value={formdata.emailid}
     onChange={handleChange} className='in-put-user' required/>
 
     <label  htmlform="password" className='loginpassword'>Password</label><br/>
@@ -106,3 +143,35 @@ export default Login;
 // }
 // const[emailid,setEmailId]=useState("");
 //   const[password,setPassword]=useState("");
+
+
+
+// const userAuth={
+//   email:emailid,
+//   password:password
+// };
+// axios.post("http://localhost:8080/auth/login",userAuth)
+// .then(response=>{
+//       const token=response.data.token;
+//       if(token)
+//       {
+//         setToken(token)
+//         setemailId(userAuth.email);
+//         const userType=response.data.role;
+//         setRole(userType)
+//             if(userType=="STUDENT"){
+//               nav("/studentdashboard");
+//             }
+//             else if(userType==="STAFF"){
+//               nav('/staffdashboard')
+//             }
+//             else if(userType=="ADMIN"){
+//               nav('/home')
+//             }
+//             else {
+//               alert("Invalid user role");
+//             }
+//           } else {
+//             alert("Invalid token. Please try again.");
+//           }
+// }).catch(error=>{toast.error(error.response.data)})

@@ -32,12 +32,12 @@ function Footer() {
                 <div className="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.4s">
                     <h3 className="f-title f_600 t_color f_size_18">CONTACTS</h3>
                     <ul className="list-unstyled f_list">
-                        <li><Link to="/" style={{textDecoration:'none'}}>Company</Link></li>
-                        <li><Link to="/" style={{textDecoration:'none'}}>Android App</Link></li>
-                        <li><Link to="/" style={{textDecoration:'none'}}>ios App</Link></li>
-                        <li><Link to="/" style={{textDecoration:'none'}}>Desktop</Link></li>
-                        <li><Link to="/" style={{textDecoration:'none'}}>Projects</Link></li>
-                        <li><Link to="/" style={{textDecoration:'none'}}>My tasks</Link></li>
+                        <li><Link to="/apw" style={{textDecoration:'none'}}>Company</Link></li>
+                        <li><Link to="/apw" style={{textDecoration:'none'}}>Android App</Link></li>
+                        <li><Link to="/apw" style={{textDecoration:'none'}}>ios App</Link></li>
+                        <li><Link to="/apw" style={{textDecoration:'none'}}>Desktop</Link></li>
+                        <li><Link to="/apw" style={{textDecoration:'none'}}>Projects</Link></li>
+                        <li><Link to="/apw" style={{textDecoration:'none'}}>My tasks</Link></li>
                     </ul>
                 </div>
             </div>

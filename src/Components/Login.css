@@ -9,7 +9,7 @@
     display: flex;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 180vh;
+    height: 150vh;
 }
 .staff-login
 {
@@ -74,13 +74,13 @@
     opacity: 0.7;
     position:absolute;
     left:65%;
-    top:15%;
+    top:22%;
     border-radius: 15px;
-    height: 70vh;
+    height: 50%;
     width: 67vh;
     background-size: cover;
     color: white;
-    display: flex;  
+    display: flex;
 }
 
 #formContent
@@ -92,8 +92,8 @@
 }
 #formContent h2{
    position: absolute;
-   left:76%;
-   top:20%;
+   left:77%;
+   top:25%;
 }
 .loginuser
 {
@@ -105,7 +105,7 @@
 }
 .Aloginuser
 {
-    left:68%;
+    left:69%;
     top:36%;
     position: absolute;
     font-family: 'Times New Roman', Times, serif;
@@ -141,7 +141,7 @@
 {
     position: absolute;
     left:79%;
-    top:56%;
+    top:59%;
     border: none;
     border-radius: 10%;
     padding: 10px;
@@ -156,5 +156,8 @@
 @media only screen and (min-width: 1024px) {
   #cover{
     display:flex;
+  }
+  .login{
+    display: flex;
   }
 } 
